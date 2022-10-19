@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewData["Title"] = "ContactSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center" class="text-primary">CONTACT SETTINGS</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 style="text-align:left" class="text-primary">EMAIL SETTINGS</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            TO EMAIL
+                        </th>
+                        <th>
+                            SMTP HOST
+                        </th>
+                        <th>
+                            EMAIL USED
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.MailSettingsData != null)
+                    {
+                        <tr>
+                            <td>
+
+                                <span>@ViewBag.MailSettingsData.SendEmailAddress</span>
+
+                            </td>
+                            <td>
+
+                                <span>@ViewBag.MailSettingsData.SmtpHost</span>
+
+                            </td>
+                            <td>
+
+                                <span>@ViewBag.MailSettingsData.EmailAddress</span>
+
+                            </td>
+                            <td style="text-align:center">
+                                <a asp-area="" asp-controller="Home" asp-action="MailSettingsEdit" asp-route-id="@ViewBag.MailSettingsData.MailSettingsId" class="btn btn-success">EDIT</a>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4">
+                                <a class="btn btn-primary btn-block" asp-area="" asp-controller="Home" asp-action="MailSettingsAdd">
+                                    CREATE EMAIL SETTINGS
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3 style="text-align:left" class="text-primary">CONTACT INFORMATION</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            ADDRESS
+                        </th>
+                        <th>
+                            MAIL
+                        </th>
+                        <th>
+                            PHONE NUMBER
+                        </th>
+                        <th>
+                            MAP
+                        </th>
+                        <th>
+                           
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.ContactInformationData != null)
+                    {
+                        <tr>
+                            <td>
+                                <span>@ViewBag.ContactInformationData.ContactAddress</span>
+
+                            </td>
+                            <td>
+                                <span>@ViewBag.ContactInformationData.ContactEmail</span>
+
+                            </td>
+                            <td>
+
+                                <span>@ViewBag.ContactInformationData.ContactPhone</span>
+
+                            </td>
+                            <td>
+                                <iframe src="@ViewBag.ContactInformationData.ContactMapIframe" width="100%" height="40" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </td>
+                            <td style="text-align:center">
+                                <a asp-area="" asp-controller="Home" asp-action="ContactInformationEdit" asp-route-id="@ViewBag.ContactInformationData.ContactId" class="btn btn-success">EDIT</a>
+                            </td>
+                        </tr>
+                        
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5">
+                                <a class="btn btn-primary btn-block" asp-area="" asp-controller="Home" asp-action="ContactInformationAdd">
+                                    CREATE CONTACT INFORMATION
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+ 
+
+ 

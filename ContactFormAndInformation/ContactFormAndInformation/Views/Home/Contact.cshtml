@@ -1,0 +1,63 @@
+﻿@model ContactFormAndInformation.Models.ContactMailForm
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 style="text-align:center" class="text-primary">CONTACT</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-action="Contact" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Name</label>
+                        <input type="text" asp-for="ContactMailName" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Surname</label>
+                        <input type="text" asp-for="ContactMailSurname" class="form-control">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Email</label>
+                        <input type="email" asp-for="ContactMailEmail" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Subject</label>
+                        <input type="text" asp-for="ContactMailSubject" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea cols="30" rows="7" asp-for="ContactMailMessage" class="form-control"> </textarea>
+                </div>
+                <div class="form-group" style="text-align:center">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            @if (ViewBag.ContactInformationData != null)
+            {
+                <p>
+                   ADDRESS: @ViewBag.ContactInformationData.ContactAddress
+                </p>
+                <p>
+                    EMAIL: @ViewBag.ContactInformationData.ContactEmail
+                </p>
+                <p>
+                    PHONE NUMBER: @ViewBag.ContactInformationData.ContactPhone
+                </p>
+                <iframe src="@ViewBag.ContactInformationData.ContactMapIframe" width="100%" height="50%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            }
+            else
+            {
+                <p> </p>
+            }
+
+        </div>
+    </div>
+</div>

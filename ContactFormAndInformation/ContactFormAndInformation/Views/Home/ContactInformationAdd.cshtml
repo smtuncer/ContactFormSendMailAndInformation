@@ -1,0 +1,41 @@
+﻿@model ContactFormAndInformation.Models.ContactInformation
+@{
+    ViewData["Title"] = "ContactInformationAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="ContactInformationAdd">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
+                <div class="form-group">
+                    <label>ADDRESS</label>
+                    <input asp-for="ContactAddress" class="form-control" required />
+                    <span asp-validation-for="ContactAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>EMAIL</label>
+                    <input asp-for="ContactEmail" class="form-control" required />
+                    <span asp-validation-for="ContactEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>PHONE NUMBER</label>
+                    <input asp-for="ContactPhone" class="form-control" required />
+                    <span asp-validation-for="ContactPhone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>MAP IFRAME</label>
+                    <input asp-for="ContactMapIframe" class="form-control" required />
+                    <span asp-validation-for="ContactMapIframe" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="CREATE" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,73 @@
+﻿@model ContactFormAndInformation.Models.MailSettings
+@{
+    ViewData["Title"] = "MailSettingsEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="MailSettingsEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="MailSettingsId" />
+                <div class="form-group">
+                    FROM EMAIL
+                    <input asp-for="FromEmailAddress" class="form-control" required />
+                    <span asp-validation-for="FromEmailAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    FROM EMAIL DISPLAY NAME
+                    <input asp-for="FromEmailAddressDisplayName" class="form-control" required />
+                    <span asp-validation-for="FromEmailAddressDisplayName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    SEND EMAIL
+                    <input asp-for="SendEmailAddress" class="form-control" required />
+                    <span asp-validation-for="SendEmailAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    SEND EMAIL DISPLAY NAME
+                    <input asp-for="SendEmailAddressDisplayName" class="form-control" required />
+                    <span asp-validation-for="SendEmailAddressDisplayName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    SMTP HOST<br />
+                    <label class="text text-warning">
+                        <b>
+                            Example: sitename.com
+                        </b>
+                    </label>
+                    <input asp-for="SmtpHost" class="form-control" required />
+                    <span asp-validation-for="SmtpHost" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    SMTP PORT<br />
+                    <label class="text text-warning">
+                        <b>
+                            Example: 587
+                        </b>
+                    </label>
+                    <input asp-for="SmtpPort" class="form-control" required />
+                    <span asp-validation-for="SmtpPort" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    EMAIL
+                    <input asp-for="EmailAddress" class="form-control" required />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    PASSWORD
+                    <input asp-for="EmailAddressPassword" class="form-control" required />
+                    <span asp-validation-for="EmailAddressPassword" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="EDIT" class="btn btn-success" />
+                </div>
+            </form>
+
+            <a asp-controller="Home" asp-action="MailSettingsRemove" asp-route-id="@Model.MailSettingsId" class="btn btn-danger">DELETE</a>
+        </div>
+    </div>
+</div>
+
